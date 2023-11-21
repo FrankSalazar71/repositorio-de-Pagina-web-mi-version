@@ -1,0 +1,101 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.calendar {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto; 
+    text-align: center;
+    background-color: #ffffffb3;
+    border-radius: 5%;
+    padding: 20px;
+}
+
+.calendar-header {
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 24px;
+    padding: 10px;
+}
+
+.calendar-header button {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: rgb(135, 17, 17);
+    background-color: #ffffff23;
+}
+
+.calendar-days {
+    display: flex;
+    padding: 20px;
+    justify-content: space-around;
+    background-color: #640e0e;
+}
+
+.day {
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    text-align: center; /* Centra el texto horizontalmente */
+}
+
+.calendar-dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.fechi {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center; 
+}
+
+#monthYear {
+    text-transform: uppercase;
+    font-size: 24px;
+    text-align: center; 
+}
+
+#calendarFooter {
+    text-align: center;
+    padding: 10px;
+}
+
+#currentDateAndTime {
+    font-weight: bold;
+}
+
+.calendar-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}
+
+#calendarInfo,
+#currentDateAndTimeBox {
+    background: #580909;
+    color: white;
+    padding: 10px;
+    width: 100%; 
+    margin-top: 10px; 
+    box-sizing: border-box; /
+}
+
+.current-day {
+    background-color: #440f0f; 
+    color: #fff; 
+    border-radius: 25%; 
+}
+
+.info-box {
+    border: 1px solid white;
+    padding: 10px;
+}

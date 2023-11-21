@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALFONSO UGARTE</title>
+    <link rel="shortcut icon" href="../img/insignia TRANS.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/calendario.css">
+    <link rel="stylesheet" href="../css/estilo2.css">
+    <link rel="stylesheet" href="../css/fec.css">
+    <link rel="stylesheet" href="../css/logros.css">
+    <link rel="stylesheet" href="../css/calendario2.css">
+
+
+    <script src="https://kit.fontawesome.com/eb496ab1a0.js" crossorigin="anonymous"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/calendario.js"></script>
+
+
+    <div class="fec">
+        <div class="img78">
+
+            <script>
+                $(document).ready(function () {
+                    $.ajax({
+                        url: "http://localhost:3001/api/fechas_civicas",
+                        method: "GET",
+                        success: function (data) {
+                            var fec = document.createElement('div');
+                            fec.classList.add('fec');
+
+                            var closeBtn = document.createElement('span');
+                            closeBtn.classList.add('fec-close');
+                            closeBtn.textContent = 'x';
+                            fec.appendChild(closeBtn);
+
+                            if (data.length > 0) {
+                                var title = document.createElement('div');
+                                title.classList.add('fec-title');
+                                title.textContent = "Fechas cívicas de hoy";
+                                fec.appendChild(title);
+
+                                var message = document.createElement('div');
+                                message.classList.add('fec-message');
+
+                                for (var i = 0; i < data.length; i++) {
+                                    var fecha = new Date(data[i].FECHA).toLocaleDateString();
+                                    var nombre = data[i].NOMBRE;
+                                    var descrip = data[i].DESCRIP;
+                                    message.textContent += nombre + ": " + "Hoy " + fecha + ".\n" + ", se celebra " + descrip + ".\n";
+                                }
+
+                                fec.appendChild(message);
+                            } else {
+                                popup.textContent = "No hay fechas cívicas hoy.";
+                            }
+
+                            closeBtn.addEventListener('click', function () {
+                                fec.style.display = 'none';
+                            });
+
+                            document.body.appendChild(fec);
+                        },
+                        error: function (error) {
+                            console.log(error);
+                        }
+                    });
+
+                });
+            </script>
+            <script>
+                window.addEventListener('DOMContentLoaded', function () {
+                    document.addEventListener('click', function (event) {
+                        var fec = document.querySelector('.fec');
+                        if (event.target === fec) {
+                            fec.style.display = 'none';
+                        }
+                    });
+                });
+            </script>
+
+        </div>
+    </div>
+</head>
+
+<body>
+
+
+    <div id="loadingOverlay">
+        <img src="../img/Logo Animado Gif.gif" alt="Cargando...">
+    </div>
+
+
+    <header class="hero">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <img src="../img/insignia TRANS.png" class="nav__title">
+            </div>
+
+            <ul class="nav__link nav__link--menu">
+
+                <li class="nav__items">
+                    <a href="Inicio.html" class="nav__links">INICIO</a>
+                </li>
+
+
+                <li class="nav__items">
+                    <a href="quienes_somos.html" class="nav__links">¿QUIENES SOMOS</a>
+                </li>
+
+                <li class="nav__items">
+                    <a href="calendario.html" class="nav__links">CALENDARIO</a>
+                    <ul class="sub-menu">
+                        <li><a href="../html/galeria.html">GALERIA</a></li>
+                        <li><a href="../html/eventos.html">EVENTOS</a></li>
+                        <li><a href="#">Subsección 3</a></li>
+                    </ul>
+                </li>
+
+                <li class="nav__items">
+                    <a href="comunidad.html" class="nav__links">COMUNIDAD</a>
+                </li>
+
+
+                <li class="nav__items">
+                    <a href="#" class="nav__links">OTROS. . .</a>
+                </li>
+
+
+
+                <img src="../img/boton-eliminar.png" class="nav__close">
+            </ul>
+
+
+            <div class="nav__menu">
+                <img src="../img/menu.png" class="nav__img">
+            </div>
+        </nav>
+
+
+        <section class="hero__container container">
+            <h1 class="hero__title"><u>CALENDARIO</u></h1>
+            <p class="hero__paragraph">Honor, Trabajo y Disciplina.</p>
+
+        </section>
+    </header>
+
+    <center>
+        <hr>
+        <hr class="seg">
+    </center>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="calendar-container">
+        <div id="currentDateAndTimeBox">
+            <div class="info-box">
+                <p>Hoy es: <span id="currentDate"></span>, <span id="currentTime"></span></p>
+            </div>
+        </div>
+        <div class="calendar">
+            <div class="calendar-header">
+                <button id="prevMonth">&lt;</button>
+                <h2 class="fechi" id="monthYear"> Noviembre 2023</h2>
+                <button id="nextMonth">&gt;</button>
+            </div>
+            <div class="calendar-days">
+                <div class="day">Dom</div>
+                <div class="day">Lun</div>
+                <div class="day">Mar</div>
+                <div class="day">Mié</div>
+                <div class="day">Jue</div>
+                <div class="day">Vie</div>
+                <div class="day">Sáb</div>
+            </div>
+            <div class="calendar-dates" id="calendarDates">
+                <!-- Aquí se generan los días del mes -->
+            </div>
+        </div>
+        <div id="calendarInfo">
+            <div class="info-box">
+                <h3>Título</h3>
+                <p>Fecha: <span id="eventDate">Nov 15, 2023</span></p>
+                <p>Descripción: Esto es una descripción de un evento.</p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!--eventos-->
+
+    <div class=" TALLERES" id="TALLERES">
+        <div class="patodolostitulos">
+            <hr>
+            <h1>TALLERES</h1>
+        </div>
+        <section class="tallerescolegio">
+            <div class="tallercontainer">
+
+                <div class="box box1">
+                    <h2>TALLER DE FUTBOL</h2>
+                    <img src="../img/misiony vision_alfonso ugarte.jpg">
+                    <div class="container-p">
+                        <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente facilis, non excepturi
+                            commodi neque ipsa inventore? Laborum commodi magni dolores enim, nam sunt ducimus sequi eos
+                            doloribus similique, facere illo. </p>
+                    </div>
+
+                    <div class="check">
+                        <i class="fas fa-check"></i>
+                    </div>
+                </div>
+
+                <div class="box box2">
+                    <h2>TALLER DE MATEMATICA</h2>
+                    <img src="../img/niños dr primaria.jpg">
+                    <div class="container-p">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus provident ex quos fuga?
+                            Culpa accusamus porro architecto accusantium sapiente ab eos perspiciatis saepe, hic facere
+                            ut iusto! Nobis, autem modi.</p>
+                    </div>
+
+                    <div class="check">
+                        <i class="fas fa-check"></i>
+                    </div>
+                </div>
+
+                <div class="box box3">
+                    <h2>TALLER DE COMUNICACION</h2>
+                    <img src="../img/Logo Animado Gif.gif">
+                    <div class="container-p">
+                        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolorem aliquam facilis, et quos
+                            consequuntur nam, sunt recusandae quam eum nobis explicabo ducimus fuga? Nam, hic. Sint
+                            neque quas earum id.</p>
+                    </div>
+
+                    <div class="check">
+                        <i class="fas fa-check"></i>
+                    </div>
+                </div>
+
+            </div>
+            <!--script para tarjeta con efecto hover-->
+
+        </section>
+    </div>
+
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit impedit nobis voluptatum suscipit iure, doloribus
+        cumque ratione. Quo suscipit nisi earum repellendus nobis fuga vel officia, ipsum adipisci. Explicabo,
+        molestias?</p>
+
+    <p><iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3253.8021049790195!2d-76.3849508491794!3d-13.07729008470219!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x910ff9ae23b25d19%3A0x20106adbe425d70b!2sColegio%20Alfonso%20Ugarte%20-%20Ca%C3%B1ete!5e1!3m2!1ses-419!2spe!4v1695273793163!5m2!1ses-419!2spe"
+            width="1295" height="250" style="border:0;" allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+
+    <footer class="pie-pagina">
+        <div class="grupo-1">
+            <div class="box">
+                <figure>
+                    <a href="#">
+                        <img src="../img/insignia TRANS.png" alt="Logo de SLee Dw">
+                    </a>
+                </figure>
+            </div>
+            <div class="box">
+                <h2>Alfonso Ugarte</h2>
+                <p>Honor,Trabao y Disciplina</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio, ipsa?</p>
+            </div>
+            <div class="box">
+                <h2>VISITANOS</h2>
+                <div class="red-social">
+                    <a href="#" class="fa fa-facebook"></a>
+                    <a href="#" class="fa fa-youtube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="grupo-2">
+            <small>&copy; 2023 - Alfonso Ugarte.</small>
+        </div>
+    </footer>
+
+
+    <div class="bubble-container"></div>
+
+    <script src="../js/menu.js"></script>
+
+    <script src="../js/p_carga.js"></script>
+
+</body>
+
+<script src="../js/efecto.js"></script>
+
+</html>

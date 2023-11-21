@@ -1,0 +1,33 @@
+/* CSS existente aquí */
+
+/* Pantalla de carga */
+#loadingOverlay {
+    /* Estilos para la pantalla de carga */
+}
+
+/* Responsividad general */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Estilos para el encabezado, menú y contenido */
+
+/* Media queries para dispositivos móviles */
+@media (max-width: 768px) {
+    /* Estilos específicos para dispositivos móviles */
+}
+
+/* Media queries para pantallas pequeñas */
+@media (max-width: 480px) {
+    /* Estilos específicos para pantallas pequeñas */
+}

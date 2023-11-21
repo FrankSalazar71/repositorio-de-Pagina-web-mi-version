@@ -1,0 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/*PANTALLA DE CARGA*/
+#loadingOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#loadingOverlay img {
+    width: 200px;
+    height: 200px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    
+    /* Establecemos un fondo de color para el cuerpo */
+}
+
+.content {
+    /* Estilo para tu contenido */
+    padding: 20px;
+}
+
+.bubble-container {
+    position: absolute;
+    bottom: -1800px;
+    left: 0px;
+    width: 1220px;
+    height: 325vh;
+    /* Establecemos la altura de 300px para las burbujas */
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+    /* Ocultamos el desbordamiento vertical de las burbujas */
+}
+
+.bubble {
+    position: relative;
+    background-color: #ffffff;
+    border-radius: 50%;
+    border: 2px solid #580909;
+    animation: moveUp 10s linear infinite;
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(0%);
+        /* Inicio en la posición de 0% */
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100%);
+        /* Desplazamiento hacia arriba */
+        opacity: 1;
+    }
+}
+
+/* Estilos para pantallas grandes */
+.bubble{
+    /* Estilos para burbujas en pantallas grandes */
+  }
+  
+  /* Media Query para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .bubble {
+        display: none; /* Oculta las burbujas en pantallas más pequeñas */
+    }
+  }
+  
+  /* Media Query para ajustar el tamaño de las burbujas en pantallas medianas */
+  @media (max-width: 1024px) {
+    .bubble {
+        width: 2%; /* Cambia el tamaño de las burbujas en pantallas medianas */
+        height: 2%;
+    }
+  }
+
+  
+  
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    overflow: hidden;
+    padding: var(--padding-container);
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    min-height: 600px;
+    max-height: 800px;
+    position: relative;
+    display: grid;
+    grid-template-rows: 100px 1fr;
+    color: #fff;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(180deg, #0000008c 0%, #0000008c 100%), url('../img/20191_alfonsoUgarte.png');
+    background-size: cover;
+    z-index: -1;
+}
+
+
+/* Estilo para el submenú */
+.sub-menu {
+    display: block; /* Inicialmente muestra el submenú */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    max-height: 0; /* Oculta el contenido por defecto */
+    overflow: hidden;
+    transition: max-height 0.7s ease-in-out; /* Agrega una transición suave */
+}
+
+/* Estilo para los elementos del submenú */
+.sub-menu li {
+    margin: 10px 0;
+    position: relative;
+}
+
+/* Estilo para los enlaces del submenú */
+.sub-menu a {
+    text-decoration: none;
+    color: #ffffff; /* Cambia el color según tus preferencias */
+}
+
+/* Estilo para mostrar el submenú al pasar el ratón sobre el enlace principal */
+.nav__items:hover .sub-menu {
+    max-height: 500px; /* Establece un valor suficientemente grande para mostrar todas las opciones */
+}
+.sub-menu a:hover{
+    color: #490303;
+}
+
+
+.nav {
+    --padding-container: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.nav__title {
+    font-weight: 300;
+    width: 45px;
+    /* Ancho  */
+    height: 50px;
+    /* Alto  */
+}
+
+.nav__link {
+    margin-left: auto;
+    padding: 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 2em;
+}
+
+.nav__items {
+    list-style: none;
+}
+
+.nav__links {
+    color: #fff;
+    text-decoration: none;
+}
+
+.nav__menu {
+    margin-left: auto;
+    cursor: pointer;
+    display: none;
+}
+
+.nav__img {
+    display: block;
+    width: 30px;
+}
+
+.nav__close {
+    display: var(--show, none);
+}
+
+
+
+.hero__container {
+    max-width: 800px;
+    --padding-container: 0;
+    display: grid;
+    grid-auto-rows: max-content;
+    align-content: center;
+    gap: 1em;
+    padding-bottom: 100px;
+    text-align: center;
+}
+
+.hero__title {
+    font-size: 3rem;
+}
+
+.hero__paragraph {
+    margin-bottom: 20px;
+}
+
+
+@media (max-width:800px) {
+    .nav__menu {
+        display: block;
+    }
+
+    .nav__link--menu {
+        position: fixed;
+        background-color: #504d4d;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+        z-index: 100;
+        opacity: 0;
+        pointer-events: none;
+        transition: .7s opacity;
+    }
+
+    .nav__link--show {
+        --show: block;
+        opacity: 1;
+        pointer-events: unset;
+    }
+
+    .nav__close {
+        position: absolute;
+        top: 30px;
+        right: 30px;
+        width: 30px;
+        cursor: pointer;
+    }
+
+}
+
+
+/*primera parte del calendario: seccion de imagenes 1*/
+hr {
+    background-color: #770000;
+    width: 80%;
+    height: 6px;
+
+}
+
+hr.seg {
+    background-color: #770000;
+    width: 60%;
+    height: 6px;
+
+}
+
+
+
+/*implementacion del carrusel */
+
+
+iframe {
+    width: 100%;
+    height: auto;
+}
+
+
+.pie-pagina {
+    width: 100%;
+    background-color: #770000;
+}
+
+.pie-pagina .grupo-1 {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px;
+    padding: 45px 0px;
+}
+
+.pie-pagina .grupo-1 .box figure {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pie-pagina .grupo-1 .box figure img {
+    width: 250px;
+}
+
+.pie-pagina .grupo-1 .box h2 {
+    color: #fff;
+    margin-bottom: 25px;
+    font-size: 20px;
+}
+
+.pie-pagina .grupo-1 .box p {
+    color: #efefef;
+    margin-bottom: 10px;
+}
+
+.pie-pagina .grupo-1 .red-social a {
+    display: inline-block;
+    text-decoration: none;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-right: 10px;
+    background-color: #770000;
+    text-align: center;
+    transition: all 300ms ease;
+}
+
+.pie-pagina .grupo-1 .red-social a:hover {
+    color: aqua;
+}
+
+.pie-pagina .grupo-2 {
+    background-color: #9c0d0d;
+    padding: 15px 10px;
+    text-align: center;
+    color: #fff;
+}
+
+.pie-pagina .grupo-2 small {
+    font-size: 15px;
+}
+
+@media screen and (max-width:800px) {
+    .pie-pagina .grupo-1 {
+        width: 90%;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 30px;
+        padding: 35px 0px;
+    }
+}   

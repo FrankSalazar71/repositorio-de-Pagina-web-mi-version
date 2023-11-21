@@ -1,0 +1,108 @@
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    background-color: #b40a34;
+    color: #FFFFFF;
+    font-family: sans-serif;
+  }
+  
+  header {
+    background-color: #e4e129;
+    padding: 20px;
+  }
+  
+  img {
+    max-width: 10%;
+  }
+  
+  h1, h2, h3 {
+    text-align: center;
+  }
+  
+  p {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  
+  a {
+    color: #631bd8;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  .container {
+    width: 960px;
+    margin: 0 auto;
+  }
+  
+  .historia {
+    padding: 20px;
+  }
+  
+  .datos {
+    padding: 20px;
+    border-top: 1px solid #FFFFFF;
+  }
+  
+  .footer {
+    background-color: #FFFFFF;
+    padding: 20px;
+  }
+
+  .mision-y-vision {
+    margin-top: 20px;
+  }
+  
+  .mision-y-vision ul {
+    list-style-type: none;
+    margin-bottom: 10px;
+  }
+  
+  .mision-y-vision ul li {
+    padding: 0;
+  }
+  
+  .mision-y-vision ul li h3 {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+  }
+  
+  .mision-y-vision ul li p {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .buttons {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.button {
+    display: inline-block;
+    background-color: #FFFFFF;
+    color: #b40a34;
+    padding: 8px 16px;
+    margin-left: 10px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.button:hover {
+    background-color: #e4e129;
+    color: #FFFFFF;
+}

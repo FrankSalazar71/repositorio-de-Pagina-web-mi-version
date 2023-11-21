@@ -1,0 +1,50 @@
+.fec {
+    background: url(../img/Logo\ Animado\ Gif.gif) center/cover no-repeat;
+    background-size: 300px 300px; /* Tamaño deseado para la imagen */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    color: black;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    font-family: Arial, sans-serif; /* Cambia la fuente según tus preferencias */
+    width: 60%; /* Aumenta el ancho del contenedor al 60% del ancho de la ventana */
+    height: 60%; /* Aumenta la altura del contenedor al 60% del alto de la ventana */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    border-radius: 10px; /* Agrega un border-radius al contenedor */
+    text-align: center; /* Centra el contenido horizontalmente */
+}
+
+.fec-title {
+    font-size: 28px; /* Tamaño del título */
+    font-weight: bold; /* Grosor del título */
+    margin-bottom: 10px;
+    text-align: center; /* Centra el título horizontalmente */
+}
+
+.fec-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+.fec-list li {
+    margin-bottom: 15px; 
+    font-size: 22px;
+}
+
+.fec-close {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
