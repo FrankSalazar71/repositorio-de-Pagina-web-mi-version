@@ -11,7 +11,7 @@ let conexion = mysql.createConnection({
 
 
 });
-
+ /*xd*/
 
 conexion.connect(function (error) {
     if (error) {
