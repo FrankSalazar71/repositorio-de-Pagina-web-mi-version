@@ -21,7 +21,7 @@ conexion.connect(function (error) {
     }
   });
 
-  const puerto = process.env.PUERTO || 3001;
+  const puerto = process.env.PUERTO || 3000;
 
   app.listen(puerto, function () {
     console.log("Servidor funcionando en puerto: " + puerto);
@@ -63,7 +63,7 @@ app.get("/",function(req,res){
 });
 
 app.listen(3000,function(){
-    console.log('Escuchando en el puerto http://localhost:3001');
+    console.log('Escuchando en el puerto http://localhost:3000');
 });
 
 
