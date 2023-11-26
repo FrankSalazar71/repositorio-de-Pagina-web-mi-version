@@ -34,9 +34,11 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 //definimos las carpetas
-app.use("/css",express.static(__dirname+ '/css'));
-app.use("/img",express.static(__dirname+ '/img'));
-app.use("/js",express.static(__dirname+ '/js'));
+// Definimos las carpetas estáticas
+app.use("/css", express.static(path.join(__dirname, 'css')));
+app.use("/img", express.static(path.join(__dirname, 'img')));
+app.use("/js", express.static(path.join(__dirname, 'js')));
+app.use(express.static(path.join(__dirname, "html")));
 //pagina principal
 
 
